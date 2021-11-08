@@ -22,7 +22,9 @@
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/heart" />
+            app:srcCompat="@drawable/heart"
+            android:contentDescription="@null"
+            tools:ignore="NestedWeights" />
 
         <ImageView
             android:id="@+id/main_IMG_heart2"
@@ -31,7 +33,8 @@
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/heart" />
+            app:srcCompat="@drawable/heart"
+            android:contentDescription="@null"/>
 
         <ImageView
             android:id="@+id/main_IMG_heart3"
@@ -40,7 +43,8 @@
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/heart" />
+            app:srcCompat="@drawable/heart"
+            android:contentDescription="@null"/>
 
     </LinearLayout>
 
@@ -48,48 +52,55 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
             <ImageView
                 android:id="@+id/main_IMG_leftRock1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_leftRock2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_leftRock3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_leftRock4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_leftRock5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
         </LinearLayout>
 
@@ -105,7 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rock"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_middleRock2"
@@ -113,7 +125,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rock"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_middleRock3"
@@ -121,7 +134,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rock"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_middleRock4"
@@ -129,7 +143,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rock"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_middleRock5"
@@ -137,7 +152,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/rock"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@null"/>
         </LinearLayout>
 
         <LinearLayout
@@ -151,35 +167,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_rightRock2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_rightRock3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_rightRock4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/main_IMG_rightRock5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/rock" />
+                app:srcCompat="@drawable/rock"
+                android:contentDescription="@null"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -195,21 +216,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/car" />
+            app:srcCompat="@drawable/car"
+            android:contentDescription="@null"
+            tools:ignore="NestedWeights" />
 
         <ImageView
             android:id="@+id/main_IMG_carMiddle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/car" />
+            app:srcCompat="@drawable/car"
+            android:contentDescription="@null"/>
 
         <ImageView
             android:id="@+id/main_IMG_carRight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/car" />
+            app:srcCompat="@drawable/car"
+            android:contentDescription="@null"/>
 
     </LinearLayout>
 
@@ -229,7 +254,8 @@
             android:background="@null"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/left"
-            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck,NestedWeights,SpeakableTextPresentCheck"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/textView"
@@ -245,9 +271,9 @@
             android:background="@null"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/right"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@null"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

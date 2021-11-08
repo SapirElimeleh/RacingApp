@@ -1,18 +1,15 @@
 package com.example.racingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.widget.Toast;
@@ -28,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton main_IMG_rightArrow;
     int rockRow = 5;
     int countLives = 0;
-    int tempRock1;
-    int tempRock2;
 
 
     @Override
@@ -116,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void vibrate() {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
+        // Vibrate for 100 milliseconds
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
         } else {
@@ -160,8 +155,6 @@ public class MainActivity extends AppCompatActivity {
                 main_IMG_cars[2].setVisibility(View.VISIBLE);
             }
         });
-
-
     }
 
 
@@ -188,8 +181,7 @@ public class MainActivity extends AppCompatActivity {
                         , findViewById(R.id.main_IMG_rightRock4)},
                 {findViewById(R.id.main_IMG_leftRock5)
                         , findViewById(R.id.main_IMG_middleRock5)
-                        , findViewById(R.id.main_IMG_rightRock5)},
-        };
+                        , findViewById(R.id.main_IMG_rightRock5)}};
 
 
         for (ImageView[] main_img_rock : main_IMG_rocks) {
@@ -210,7 +202,5 @@ public class MainActivity extends AppCompatActivity {
 
         main_IMG_leftArrow = findViewById(R.id.main_IMG_leftArrow);
         main_IMG_rightArrow = findViewById(R.id.main_IMG_rightArrow);
-
-
     }
 }
