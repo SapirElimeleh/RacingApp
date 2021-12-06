@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">RacingApp</string>
+    <string name="app_name">Winter Is Coming</string>
+    <string name="Play">Play</string>
+    <string name="sound">Sound:</string>
+    <string name="sensor">Sensor:</string>
+    <string name="off">OFF</string>
+    <string name="on">ON</string>
+    <string name="Records">records</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_10_records">TOP 10 RECORDS</string>
+
+
 </resources>

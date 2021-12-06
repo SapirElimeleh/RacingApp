@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu_background">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/menu_SWC_sound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="420dp"
+        android:checked="true"
+        android:switchMinWidth="56dp"
+        android:text="@string/sound"
+        android:textColor="@color/white"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/menu_SWC_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menu_SWC_sound"
+        android:layout_alignStart="@+id/menu_SWC_sound"
+        android:checked="true"
+        android:switchMinWidth="56dp"
+        android:text="@string/sensor"
+        android:textColor="@color/white"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/menu_BTN_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menu_SWC_sensor"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:width="110dp"
+        android:height="60dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/Play"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/menu_BTN_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menu_BTN_play"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:width="110dp"
+        android:height="50dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/Records"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+</RelativeLayout>
