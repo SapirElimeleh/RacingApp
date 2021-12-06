@@ -17,8 +17,7 @@
         android:textOff="@string/off"
         android:textOn="@string/on"
         android:textSize="16sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/menu_SWC_sensor"

@@ -9,6 +9,10 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -39,26 +43,48 @@ import java.util.TimerTask;
 public class GameActivity extends AppCompatActivity {
 
     private static final int DELAY = 1000;
-    ImageView[] main_IMG_hearts;
-    int[][] num_IMV_rocks;
-    ImageView[][] main_IMG_obs;
-    ImageView[] main_IMG_Jhon;
-    ImageButton main_IMG_leftArrow;
-    ImageButton main_IMG_rightArrow;
-    String[] main_img_names;
-    TextView main_LBL_score;
+    public static final String SENSOR_TYPE = "SENSOR_TYPE";
+    private ImageView[] main_IMG_hearts;
+    private int[][] num_IMV_rocks;
+    private ImageView[][] main_IMG_obs;
+    private ImageView[] main_IMG_Jhon;
+    private ImageButton main_IMG_leftArrow;
+    private ImageButton main_IMG_rightArrow;
+    private String[] main_img_names;
+    private TextView main_LBL_score;
     private Timer timer;
-
-    int obsRow = 8;
-    int obsCol = 5;
-    int countLives = 0;
-    int currentJhonPlace = 0;
-    int score = 0;
+    private final int obsRow = 8;
+    private final int obsCol = 5;
+    private int countLives = 0;
+    private int currentJhonPlace = 0;
+    private int score = 0;
     private static MyDB myDB = new MyDB();
     private LocationManager locationManager;
     private LocationListener locationListener;
     private double lat;
     private double lon;
+    private MSP msp;
+    private Gson gson;
+    private SensorManager sensorManager;
+    private Sensor sensor;
+
+    private SensorEventListener accSensorEventListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+
+            float x = event.values[0];
+
+            if (x < -3) {
+                moveJhonRight();
+            } else if (x > 3)
+                moveJhonLeft();
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
 
 
     @Override
@@ -68,10 +94,17 @@ public class GameActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
+        gson = new Gson();
+        msp = MSP.getInstance();
         locationPermission();
+
         findViews();
-        moveJhon();
+
+        Intent intent = getIntent();
+        initSensor(intent.getStringExtra(SENSOR_TYPE));
+
         moveObs();
+
 
     }
 
@@ -196,6 +229,26 @@ public class GameActivity extends AppCompatActivity {
         });
 
     }
+
+    //move jhon left
+    private void moveJhonLeft() {
+
+        if (currentJhonPlace != 0) {
+            currentJhonPlace -= 1;
+            setJhonVisibility(currentJhonPlace);
+        }
+    }
+
+    //move jhon right
+    private void moveJhonRight() {
+
+            if (currentJhonPlace != obsCol - 1) {
+                currentJhonPlace += 1;
+                setJhonVisibility(currentJhonPlace);
+            }
+
+    }
+
 
     //set visibility of jhon for arrow clicking
     private void setJhonVisibility(int nextIndex) {
@@ -323,7 +376,7 @@ public class GameActivity extends AppCompatActivity {
 
         String js = MSP.getInstance().getString("MY_DB", "");
         if (js != null) {
-            MyDB myDB = new Gson().fromJson(js, MyDB.class);
+            myDB = new Gson().fromJson(js, MyDB.class);
         }
 
 
@@ -339,9 +392,9 @@ public class GameActivity extends AppCompatActivity {
         finish();
     }
 
-   private void saveGameData(){
+    private void saveGameData() {
 
-   }
+    }
 
     //create loop of obstacles getting down
     private void moveObs() {
@@ -374,6 +427,21 @@ public class GameActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         } else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 1, locationListener);
+        }
+    }
+
+    private void initSensor(String typeSen) {
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        Intent intent = getIntent();
+        if (intent.getStringExtra(SENSOR_TYPE).equals("SENS")) {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+            main_IMG_rightArrow.setVisibility(View.INVISIBLE);
+            main_IMG_leftArrow.setVisibility(View.INVISIBLE);
+        } else //SENSOR_TYPE == "BTN"
+        {
+            sensorManager.unregisterListener(accSensorEventListener);
+            moveJhon();
         }
     }
 

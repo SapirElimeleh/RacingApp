@@ -1,21 +1,20 @@
 package com.example.racingapp.Utils;
 
-import com.example.racingapp.Models.MapSpot;
 import com.example.racingapp.Models.Record;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class MyDB {
 
-    public static ArrayList<Record> records = new ArrayList<>();
+    public ArrayList<Record> records;
     public final static int MAX_RECORDS = 10;
 
     public MyDB() {
+        records = new ArrayList<>();
     }
 
-    public static ArrayList<Record> getRecords() {
+    public ArrayList<Record> getRecords() {
         return records;
     }
 
@@ -23,13 +22,6 @@ public class MyDB {
         this.records = records;
         return this;
     }
-
-
-//    class RecordScoreComparator implements Comparator<Record> {
-//        public int compare(Record record1, Record record2) {
-//            return record1.getScore() > record2.getScore() ? -1 : (record1.getScore() < record2.getScore()) ? 1 : 0;
-//        }
-//    }
 
     public void addRecord(Record record) {
         if (records.size() < MAX_RECORDS) {

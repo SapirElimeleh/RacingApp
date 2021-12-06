@@ -36,17 +36,14 @@ public class ListFragment extends Fragment {
         
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-
         list_RV_records = view.findViewById(R.id.list_RV_records);
-
 
         String js = MSP.getInstance().getString("MY_DB", "");
         MyDB myDB = new Gson().fromJson(js, MyDB.class);
 
         records = myDB.getRecords();
 
-        RecordAdapter recordAdapter = new RecordAdapter(this, MyDB.getRecords());
-
+        RecordAdapter recordAdapter = new RecordAdapter(this, myDB.getRecords());
 
         list_RV_records.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL,false));
         list_RV_records.setHasFixedSize(true);

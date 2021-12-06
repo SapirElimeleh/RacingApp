@@ -31,6 +31,7 @@ public class MenuActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.menu_activity);
 
+
         findMenuView();
         playBackgroundSound();
         goToGame();
@@ -44,9 +45,9 @@ public class MenuActivity extends AppCompatActivity {
         startService(intent);
 
         soundSwitch.setOnClickListener(v -> {
-            if(!soundSwitch.isChecked()) {
-               stopService(intent);
-            }else{
+            if (!soundSwitch.isChecked()) {
+                stopService(intent);
+            } else {
                 startService(intent);
             }
         });
@@ -55,21 +56,17 @@ public class MenuActivity extends AppCompatActivity {
 
 
     //Turn on and off sensor mode
-//    public void trunOnAndOffSensorsMode() {
-//
-//        Intent intent = new Intent(MenuActivity.this, );
-//        startService(intent);
+//    public void turnOnAndOffSensorsMode() {
 //
 //        sensorSwitch.setOnClickListener(v -> {
-//            if(!sensorSwitch.isChecked()) {
-//                //TO DO
-//            }else{
-//                //TO DO
-//            }
-//        });
 //
-//    }
-
+//
+//        }else{
+//            //TO DO
+//        }
+//    });
+//
+//}
 
 
     //get the switchers and the button view
@@ -86,13 +83,19 @@ public class MenuActivity extends AppCompatActivity {
         menu_BTN_play.setOnClickListener(v -> {
 
             Intent intent = new Intent(MenuActivity.this, GameActivity.class);
-            startActivity(intent);
 
+            if (sensorSwitch.isChecked()) {
+                intent.putExtra(GameActivity.SENSOR_TYPE, "SENS");
+            }else{
+                intent.putExtra(GameActivity.SENSOR_TYPE, "BTN");
+            }
+
+            startActivity(intent);
         });
     }
 
 
- //   go ro Records activity
+    //   go ro Records activity
     private void goToRecords() {
         menu_BTN_records.setOnClickListener(v -> {
             Intent intent = new Intent(MenuActivity.this, RecordsActivity.class);

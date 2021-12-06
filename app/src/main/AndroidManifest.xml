@@ -14,7 +14,7 @@
         android:icon="@drawable/icon_img"
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon_img"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/Theme.RacingApp">
 
         <meta-data
