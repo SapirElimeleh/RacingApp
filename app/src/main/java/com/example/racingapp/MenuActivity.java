@@ -55,19 +55,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
-    //Turn on and off sensor mode
-//    public void turnOnAndOffSensorsMode() {
-//
-//        sensorSwitch.setOnClickListener(v -> {
-//
-//
-//        }else{
-//            //TO DO
-//        }
-//    });
-//
-//}
-
 
     //get the switchers and the button view
     private void findMenuView() {

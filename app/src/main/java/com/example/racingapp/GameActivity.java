@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -65,6 +64,8 @@ public class GameActivity extends AppCompatActivity {
     private double lon;
     private MSP msp;
     private Gson gson;
+
+
     private SensorManager sensorManager;
     private Sensor sensor;
 
@@ -74,15 +75,14 @@ public class GameActivity extends AppCompatActivity {
 
             float x = event.values[0];
 
-            if (x < -3) {
+            if (x < -6) {
                 moveJhonRight();
-            } else if (x > 3)
+            } else if (x > 6)
                 moveJhonLeft();
         }
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
         }
     };
 
@@ -372,7 +372,11 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void gameOver() {
+
         timer.cancel();
+
+        if (sensorManager != null)
+            sensorManager.unregisterListener(accSensorEventListener);
 
         String js = MSP.getInstance().getString("MY_DB", "");
         if (js != null) {
@@ -392,9 +396,6 @@ public class GameActivity extends AppCompatActivity {
         finish();
     }
 
-    private void saveGameData() {
-
-    }
 
     //create loop of obstacles getting down
     private void moveObs() {
@@ -440,10 +441,24 @@ public class GameActivity extends AppCompatActivity {
             main_IMG_leftArrow.setVisibility(View.INVISIBLE);
         } else //SENSOR_TYPE == "BTN"
         {
-            sensorManager.unregisterListener(accSensorEventListener);
+           // sensorManager.unregisterListener(accSensorEventListener);
             moveJhon();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(accSensorEventListener , sensor , SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(accSensorEventListener);
+    }
+
+
 
 
 }

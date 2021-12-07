@@ -7,7 +7,6 @@ import android.os.Bundle;
 import com.example.racingapp.Models.Record;
 import com.example.racingapp.Utils.MyDB;
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 public class RecordsActivity extends AppCompatActivity {

@@ -28,20 +28,23 @@ public class ListFragment extends Fragment {
     private RecyclerView list_RV_records;
     private List_CallBack listCallBack;
     private ArrayList<Record> records;
+    public MyDB myDB;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        
+
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         list_RV_records = view.findViewById(R.id.list_RV_records);
 
-        String js = MSP.getInstance().getString("MY_DB", "");
-        MyDB myDB = new Gson().fromJson(js, MyDB.class);
 
-        records = myDB.getRecords();
+
+        String js = MSP.getInstance().getString("MY_DB", "");
+        myDB = new Gson().fromJson(js, MyDB.class);
+
+        ArrayList<Record> records = myDB.getRecords();
 
         RecordAdapter recordAdapter = new RecordAdapter(this, myDB.getRecords());
 
