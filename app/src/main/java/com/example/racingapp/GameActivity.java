@@ -34,7 +34,11 @@ import com.example.racingapp.Models.Record;
 import com.example.racingapp.Utils.MyDB;
 import com.google.gson.Gson;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -379,12 +383,17 @@ public class GameActivity extends AppCompatActivity {
             sensorManager.unregisterListener(accSensorEventListener);
 
         String js = MSP.getInstance().getString("MY_DB", "");
-        if (js != null) {
+        if (js == null) {
             myDB = new Gson().fromJson(js, MyDB.class);
         }
 
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Jerusalem"));
+        String curDate = dateFormat.format(new Date());
 
-        myDB.addRecord(new Record().setDate(10122021).setScore(score).setMySpot(
+
+
+        myDB.addRecord(new Record().setDate(curDate).setScore(score).setMySpot(
                 new MapSpot(lat, lon)));
 
         String json = new Gson().toJson(myDB);

@@ -46,8 +46,10 @@ public class RecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         RecordViewHolder recordViewHolder = (RecordViewHolder) holder;
         Record record = getItem(position);
 
-        recordViewHolder.item_TV_score.setText("" + record.getScore());
+
         recordViewHolder.item_TV_date.setText("" + record.getDate());
+        recordViewHolder.item_TV_score.setText("" + record.getScore());
+
 
     }
 
@@ -73,8 +75,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public RecordViewHolder(@NonNull View itemView) {
             super(itemView);
-            item_TV_score = itemView.findViewById(R.id.item_TV_score);
             item_TV_date = itemView.findViewById(R.id.item_TV_date);
+            item_TV_score = itemView.findViewById(R.id.item_TV_score);
 
             itemView.setOnClickListener(
                     new View.OnClickListener() {

@@ -3,11 +3,11 @@ package com.example.racingapp.Models;
 import java.util.Comparator;
 
 public class Record {
-    private long date;
+    private String date;
     private int score;
     private MapSpot mySpot;
 
-    public Record(long date, int score, MapSpot mySpot) {
+    public Record(String date, int score, MapSpot mySpot) {
         this.date = date;
         this.score = score;
         this.mySpot = mySpot;
@@ -16,11 +16,12 @@ public class Record {
     public Record() {
     }
 
-    public long getDate() {
+    public String getDate() {
         return date;
     }
 
-    public Record setDate(long date) {
+    public Record setDate(String date) {
+
         this.date = date;
         return this;
     }

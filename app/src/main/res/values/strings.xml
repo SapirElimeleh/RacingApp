@@ -6,10 +6,9 @@
     <string name="off">OFF</string>
     <string name="on">ON</string>
     <string name="Records">records</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="top_10_records">TOP 10 RECORDS</string>
-    <string name="place">PLACE</string>
+    <string name="date">DATE</string>
     <string name="score">SCORE</string>
 
 
